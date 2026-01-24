@@ -8,171 +8,69 @@
     
     <style>
         /* --- RESET E ESTILOS GERAIS --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: #0d0d0d; color: #ffffff; line-height: 1.6; text-align: center; }
 
-        body {
-            background-color: #0d0d0d; /* Fundo escuro */
-            color: #ffffff;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        /* --- NOVO CSS PARA O BANNER RESPONSIVO --- */
+        /* --- NOVO CSS PARA O BANNER --- */
         .header-banner-container {
             width: 100%;
-            background-color: #b0b0b0; /* Cor de fundo similar ao banner para evitar "piscadas" ao carregar */
+            background-color: #b0b0b0;
             overflow: hidden;
+            line-height: 0; /* Remove espaço extra embaixo da imagem */
         }
 
         .header-banner-img {
             width: 100%;
-            height: auto; /* Mantém a proporção correta em qualquer tela */
-            display: block; /* Remove espaços indesejados abaixo da imagem */
-            max-width: 100%; /* Garante que não ultrapasse a tela */
+            height: auto;
+            display: block;
+            max-width: 100%;
         }
 
-        /* --- CONTAINER PRINCIPAL (Conteúdo abaixo do banner) --- */
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 0; /* Espaçamento interno */
-        }
+        /* --- CONTAINER PRINCIPAL --- */
+        .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 40px 0; }
 
-        /* --- HEADLINE (Texto abaixo do banner) --- */
-        .headline-section {
-            padding: 20px 0 30px;
-        }
+        /* --- HEADLINE --- */
+        .headline-section { padding: 20px 0 30px; }
+        h1 { font-size: 2.2rem; font-weight: 900; color: #ffffff; line-height: 1.2; margin-bottom: 10px; text-transform: uppercase; }
+        .highlight { color: #00ff41; }
+        .sub-headline { font-size: 1.1rem; color: #cccccc; margin-bottom: 20px; }
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .highlight {
-            color: #00ff41; /* Verde neon */
-        }
-
-        .sub-headline {
-            font-size: 1.1rem;
-            color: #cccccc;
-            margin-bottom: 20px;
-        }
-
-        /* --- ÁREA DO VÍDEO (VSL) --- */
+        /* --- VÍDEO (VSL) --- */
         .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
-            height: 0;
-            background: #000;
-            border: 2px solid #333;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-            margin-bottom: 40px;
-            overflow: hidden;
+            position: relative; padding-bottom: 56.25%; height: 0; background: #000;
+            border: 2px solid #333; border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2); margin-bottom: 40px; overflow: hidden;
         }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         /* --- BOTÃO DE AÇÃO (CTA) --- */
         .btn-cta {
-            display: inline-block;
-            background-color: #00ff41; /* Verde botão */
-            color: #000000;
-            font-size: 1.5rem;
-            font-weight: 900;
-            padding: 20px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            text-transform: uppercase;
-            margin: 20px 0 40px;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
-            transition: transform 0.2s;
+            display: inline-block; background-color: #00ff41; color: #000000;
+            font-size: 1.5rem; font-weight: 900; padding: 20px 40px; border-radius: 50px;
+            text-decoration: none; text-transform: uppercase; margin: 20px 0 40px;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.6); transition: transform 0.2s;
             animation: pulse 2s infinite;
         }
+        .btn-cta:hover { transform: scale(1.05); background-color: #00cc33; }
+        .small-text { display: block; font-size: 0.8rem; font-weight: 400; margin-top: 5px; }
 
-        .btn-cta:hover {
-            transform: scale(1.05);
-            background-color: #00cc33;
-        }
-
-        .small-text {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 400;
-            margin-top: 5px;
-        }
-
-        /* --- ANIMAÇÃO DO BOTÃO --- */
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(0, 255, 65, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
         }
 
-        /* --- SEÇÃO DE BENEFÍCIOS --- */
-        .features {
-            background-color: #1a1a1a;
-            padding: 40px 20px;
-            border-radius: 10px;
-            text-align: left;
-            margin-bottom: 40px;
-        }
-
-        .features h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #00ff41;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .check-icon {
-            color: #00ff41;
-            font-size: 1.2rem;
-            margin-right: 15px;
-            font-weight: bold;
-        }
+        /* --- BENEFÍCIOS --- */
+        .features { background-color: #1a1a1a; padding: 40px 20px; border-radius: 10px; text-align: left; margin-bottom: 40px; }
+        .features h2 { text-align: center; margin-bottom: 30px; color: #00ff41; }
+        .feature-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
+        .check-icon { color: #00ff41; font-size: 1.2rem; margin-right: 15px; font-weight: bold; }
 
         /* --- GARANTIA --- */
-        .guarantee {
-            padding: 40px 20px;
-            border: 1px dashed #555;
-            border-radius: 10px;
-            margin-bottom: 40px;
-        }
+        .guarantee { padding: 40px 20px; border: 1px dashed #555; border-radius: 10px; margin-bottom: 40px; }
 
         /* --- FOOTER --- */
-        footer {
-            padding: 40px 0;
-            font-size: 0.8rem;
-            color: #666;
-            border-top: 1px solid #333;
-        }
-
-        footer a {
-            color: #888;
-            text-decoration: none;
-        }
+        footer { padding: 40px 0; font-size: 0.8rem; color: #666; border-top: 1px solid #333; }
 
         /* --- RESPONSIVIDADE --- */
         @media (max-width: 600px) {
@@ -186,10 +84,10 @@
 <body>
 
     <div class="header-banner-container">
-        <img src="image_0.png" alt="Banner Team Feijão - Venha fazer parte do nosso time" class="header-banner-img">
+        <img src="bannercapa.png" alt="Banner Team Feijão" class="header-banner-img">
     </div>
+
     <div class="container">
-        
         <header class="headline-section">
             <h1>A HORA DE MUDAR É <span class="highlight">AGORA</span></h1>
             <p class="sub-headline">Assista ao vídeo abaixo e entenda como o #TeamFeijão vai transformar seus resultados.</p>
@@ -206,33 +104,19 @@
 
         <div class="features">
             <h2>O QUE VOCÊ VAI RECEBER:</h2>
-            
-            <div class="feature-item">
-                <span class="check-icon">✓</span>
-                <p><strong>Treinos Híbridos:</strong> Planilhas completas de musculação + corrida.</p>
-            </div>
-            
-            <div class="feature-item">
-                <span class="check-icon">✓</span>
-                <p><strong>Comunidade Exclusiva:</strong> Esteja em um ambiente que não te deixa desistir.</p>
-            </div>
-            
-            <div class="feature-item">
-                <span class="check-icon">✓</span>
-                <p><strong>Lives Mensais:</strong> Mentoria direta para tirar dúvidas e ajustar a rota.</p>
-            </div>
+            <div class="feature-item"><span class="check-icon">✓</span><p><strong>Treinos Híbridos:</strong> Musculação + corrida.</p></div>
+            <div class="feature-item"><span class="check-icon">✓</span><p><strong>Comunidade Exclusiva:</strong> Motivação diária.</p></div>
+            <div class="feature-item"><span class="check-icon">✓</span><p><strong>Lives Mensais:</strong> Tire suas dúvidas.</p></div>
         </div>
 
         <div class="guarantee">
             <h3>RISCO ZERO</h3>
-            <p>Teste por 7 dias. Se você não gostar, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
+            <p>Teste por 7 dias. Devolvemos 100% do seu dinheiro.</p>
         </div>
-
     </div>
 
     <footer>
-        <p>&copy; 2026 Team Feijão. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Team Feijão.</p>
     </footer>
-
 </body>
 </html>
