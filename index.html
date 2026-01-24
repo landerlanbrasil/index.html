@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Comunidade Híbrida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET E ESTILOS GERAIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d; /* Fundo escuro */
+            color: #ffffff;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* --- CABEÇALHO E HEADLINE --- */
+        header {
+            padding: 40px 0 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            color: #00ff41; /* Verde neon estilo 'Matrix' ou Fitness */
+        }
+
+        .sub-headline {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        /* --- ÁREA DO VÍDEO (VSL) --- */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            background: #000;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- BOTÃO DE AÇÃO (CTA) --- */
+        .btn-cta {
+            display: inline-block;
+            background-color: #00ff41; /* Verde botão */
+            color: #000000;
+            font-size: 1.5rem;
+            font-weight: 900;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin: 20px 0 40px;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
+            transition: transform 0.2s;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+            background-color: #00cc33;
+        }
+
+        .small-text {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        /* --- ANIMAÇÃO DO BOTÃO --- */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 255, 65, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+        }
+
+        /* --- SEÇÃO DE BENEFÍCIOS --- */
+        .features {
+            background-color: #1a1a1a;
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #00ff41;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .check-icon {
+            color: #00ff41;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        /* --- GARANTIA --- */
+        .guarantee {
+            padding: 40px 20px;
+            border: 1px dashed #555;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .guarantee img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 0;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .btn-cta { font-size: 1.2rem; padding: 15px 30px; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>O SEGREDO PARA SER <span class="highlight">1% MELHOR</span> TODOS OS DIAS</h1>
+            <p class="sub-headline">Descubra como transformar sua rotina, corpo e mente com o método que já mudou milhares de vidas.</p>
+        </header>
+
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/SqsIV6TC2d8?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <a href="#link-do-checkout" class="btn-cta">
+            QUERO ENTRAR PARA O TIME
+            <span class="small-text">Acesso imediato e seguro</span>
+        </a>
+
+        <div class="features">
+            <h2>O QUE VOCÊ VAI RECEBER:</h2>
+            
+            <div class="feature-item">
+                <span class="check-icon">✓</span>
+                <p><strong>Treinos Híbridos:</strong> Planilhas completas de musculação + corrida.</p>
+            </div>
+            
+            <div class="feature-item">
+                <span class="check-icon">✓</span>
+                <p><strong>Comunidade Exclusiva:</strong> Esteja em um ambiente que não te deixa desistir.</p>
+            </div>
+            
+            <div class="feature-item">
+                <span class="check-icon">✓</span>
+                <p><strong>Lives Mensais:</strong> Mentoria direta para tirar dúvidas e ajustar a rota.</p>
+            </div>
+
+            <div class="feature-item">
+                <span class="check-icon">✓</span>
+                <p><strong>Alimentação Estratégica:</strong> O combustível certo para alta performance.</p>
+            </div>
+        </div>
+
+        <div class="guarantee">
+            <h3>RISCO ZERO</h3>
+            <p>Teste por 7 dias. Se você não gostar, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
+        </div>
+
+        <a href="#link-do-checkout" class="btn-cta" style="background-color: transparent; border: 2px solid #00ff41; color: #00ff41;">
+            GARANTIR MINHA VAGA AGORA
+        </a>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Time Híbrido. Todos os direitos reservados.</p>
+        <p><a href="#">Termos de Uso</a> | <a href="#">Políticas de Privacidade</a></p>
+        <p>Este site não tem vínculo com o Facebook ou Instagram.</p>
+    </footer>
+
+</body>
+</html>
