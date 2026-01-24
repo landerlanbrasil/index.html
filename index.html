@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Comunidade Híbrida</title>
+    <title>#TeamFeijão - Comunidade Híbrida</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -22,20 +22,35 @@
             text-align: center;
         }
 
+        /* --- NOVO CSS PARA O BANNER RESPONSIVO --- */
+        .header-banner-container {
+            width: 100%;
+            background-color: #b0b0b0; /* Cor de fundo similar ao banner para evitar "piscadas" ao carregar */
+            overflow: hidden;
+        }
+
+        .header-banner-img {
+            width: 100%;
+            height: auto; /* Mantém a proporção correta em qualquer tela */
+            display: block; /* Remove espaços indesejados abaixo da imagem */
+            max-width: 100%; /* Garante que não ultrapasse a tela */
+        }
+
+        /* --- CONTAINER PRINCIPAL (Conteúdo abaixo do banner) --- */
         .container {
             width: 90%;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px 0;
+            padding: 40px 0; /* Espaçamento interno */
         }
 
-        /* --- CABEÇALHO E HEADLINE --- */
-        header {
-            padding: 40px 0 20px;
+        /* --- HEADLINE (Texto abaixo do banner) --- */
+        .headline-section {
+            padding: 20px 0 30px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 900;
             color: #ffffff;
             line-height: 1.2;
@@ -44,13 +59,13 @@
         }
 
         .highlight {
-            color: #00ff41; /* Verde neon estilo 'Matrix' ou Fitness */
+            color: #00ff41; /* Verde neon */
         }
 
         .sub-headline {
             font-size: 1.1rem;
             color: #cccccc;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         /* --- ÁREA DO VÍDEO (VSL) --- */
@@ -146,11 +161,6 @@
             margin-bottom: 40px;
         }
 
-        .guarantee img {
-            width: 80px;
-            margin-bottom: 15px;
-        }
-
         /* --- FOOTER --- */
         footer {
             padding: 40px 0;
@@ -166,18 +176,23 @@
 
         /* --- RESPONSIVIDADE --- */
         @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
+            h1 { font-size: 1.6rem; }
+            .sub-headline { font-size: 1rem; }
             .btn-cta { font-size: 1.2rem; padding: 15px 30px; width: 100%; }
+            .container { width: 95%; padding: 30px 0; }
         }
     </style>
 </head>
 <body>
 
+    <div class="header-banner-container">
+        <img src="image_0.png" alt="Banner Team Feijão - Venha fazer parte do nosso time" class="header-banner-img">
+    </div>
     <div class="container">
         
-        <header>
-            <h1>O SEGREDO PARA SER <span class="highlight">1% MELHOR</span> TODOS OS DIAS</h1>
-            <p class="sub-headline">Descubra como transformar sua rotina, corpo e mente com o método que já mudou milhares de vidas.</p>
+        <header class="headline-section">
+            <h1>A HORA DE MUDAR É <span class="highlight">AGORA</span></h1>
+            <p class="sub-headline">Assista ao vídeo abaixo e entenda como o #TeamFeijão vai transformar seus resultados.</p>
         </header>
 
         <div class="video-wrapper">
@@ -185,7 +200,7 @@
         </div>
 
         <a href="#link-do-checkout" class="btn-cta">
-            QUERO ENTRAR PARA O TIME
+            QUERO ENTRAR PARA O TEAM FEIJÃO
             <span class="small-text">Acesso imediato e seguro</span>
         </a>
 
@@ -206,11 +221,6 @@
                 <span class="check-icon">✓</span>
                 <p><strong>Lives Mensais:</strong> Mentoria direta para tirar dúvidas e ajustar a rota.</p>
             </div>
-
-            <div class="feature-item">
-                <span class="check-icon">✓</span>
-                <p><strong>Alimentação Estratégica:</strong> O combustível certo para alta performance.</p>
-            </div>
         </div>
 
         <div class="guarantee">
@@ -218,16 +228,10 @@
             <p>Teste por 7 dias. Se você não gostar, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
         </div>
 
-        <a href="#link-do-checkout" class="btn-cta" style="background-color: transparent; border: 2px solid #00ff41; color: #00ff41;">
-            GARANTIR MINHA VAGA AGORA
-        </a>
-
     </div>
 
     <footer>
-        <p>&copy; 2026 Time Híbrido. Todos os direitos reservados.</p>
-        <p><a href="#">Termos de Uso</a> | <a href="#">Políticas de Privacidade</a></p>
-        <p>Este site não tem vínculo com o Facebook ou Instagram.</p>
+        <p>&copy; 2026 Team Feijão. Todos os direitos reservados.</p>
     </footer>
 
 </body>
