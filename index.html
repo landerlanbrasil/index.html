@@ -9,85 +9,157 @@
     <style>
         /* --- RESET E ESTILOS GERAIS --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: #0d0d0d; color: #ffffff; line-height: 1.6; text-align: center; }
-
-        /* --- NOVO CSS PARA O BANNER --- */
-        .header-banner-container {
-            width: 100%;
-            background-color: #b0b0b0;
-            overflow: hidden;
-            line-height: 0; /* Remove espaço extra embaixo da imagem */
-        }
-
-        .header-banner-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            max-width: 100%;
+        
+        body { 
+            background-color: #1c1c1c; /* Cinza escuro premium para combinar com o banner */
+            color: #f0f0f0; 
+            line-height: 1.6; 
+            text-align: center; 
         }
 
         /* --- CONTAINER PRINCIPAL --- */
-        .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 40px 0; }
+        .container { 
+            width: 90%; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px 0; 
+        }
+
+        /* --- BANNER AJUSTADO --- */
+        .banner-wrapper {
+            margin-top: 20px;
+            border-radius: 15px; /* Cantos arredondados */
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5); /* Sombra para destacar do fundo */
+            border: 1px solid #333;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
         /* --- HEADLINE --- */
-        .headline-section { padding: 20px 0 30px; }
-        h1 { font-size: 2.2rem; font-weight: 900; color: #ffffff; line-height: 1.2; margin-bottom: 10px; text-transform: uppercase; }
-        .highlight { color: #00ff41; }
-        .sub-headline { font-size: 1.1rem; color: #cccccc; margin-bottom: 20px; }
+        .headline-section { padding: 30px 0 20px; }
+        
+        h1 { 
+            font-size: 2.0rem; 
+            font-weight: 900; 
+            color: #ffffff; 
+            line-height: 1.2; 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+        }
+
+        .highlight { 
+            color: #b0b0b0; /* Prata/Cinza claro para destacar sem ser colorido */
+            text-decoration: underline;
+        }
+
+        .sub-headline { 
+            font-size: 1.1rem; 
+            color: #cccccc; 
+            margin-bottom: 20px; 
+        }
 
         /* --- VÍDEO (VSL) --- */
         .video-wrapper {
             position: relative; padding-bottom: 56.25%; height: 0; background: #000;
-            border: 2px solid #333; border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2); margin-bottom: 40px; overflow: hidden;
+            border: 2px solid #444; /* Borda cinza discreta */
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1); /* Brilho branco suave */
+            margin-bottom: 40px; overflow: hidden;
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         /* --- BOTÃO DE AÇÃO (CTA) --- */
         .btn-cta {
-            display: inline-block; background-color: #00ff41; color: #000000;
-            font-size: 1.5rem; font-weight: 900; padding: 20px 40px; border-radius: 50px;
-            text-decoration: none; text-transform: uppercase; margin: 20px 0 40px;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.6); transition: transform 0.2s;
+            display: inline-block; 
+            background-color: #ffffff; /* Botão Branco */
+            color: #000000; /* Texto Preto */
+            font-size: 1.5rem; 
+            font-weight: 900; 
+            padding: 20px 40px; 
+            border-radius: 50px;
+            text-decoration: none; 
+            text-transform: uppercase; 
+            margin: 10px 0 40px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Glow branco */
+            transition: transform 0.2s, box-shadow 0.2s;
             animation: pulse 2s infinite;
         }
-        .btn-cta:hover { transform: scale(1.05); background-color: #00cc33; }
-        .small-text { display: block; font-size: 0.8rem; font-weight: 400; margin-top: 5px; }
+        
+        .btn-cta:hover { 
+            transform: scale(1.05); 
+            background-color: #e0e0e0; 
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+        }
+        
+        .small-text { display: block; font-size: 0.8rem; font-weight: 500; margin-top: 5px; color: #333; }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 255, 65, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
         /* --- BENEFÍCIOS --- */
-        .features { background-color: #1a1a1a; padding: 40px 20px; border-radius: 10px; text-align: left; margin-bottom: 40px; }
-        .features h2 { text-align: center; margin-bottom: 30px; color: #00ff41; }
+        .features { 
+            background-color: #252525; /* Um pouco mais claro que o fundo */
+            padding: 40px 20px; 
+            border-radius: 10px; 
+            text-align: left; 
+            margin-bottom: 40px; 
+            border: 1px solid #333;
+        }
+        
+        .features h2 { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            color: #ffffff; 
+        }
+        
         .feature-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
-        .check-icon { color: #00ff41; font-size: 1.2rem; margin-right: 15px; font-weight: bold; }
+        
+        .check-icon { 
+            color: #ffffff; /* Check branco */
+            font-size: 1.2rem; 
+            margin-right: 15px; 
+            font-weight: bold; 
+            background: #444;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
 
         /* --- GARANTIA --- */
-        .guarantee { padding: 40px 20px; border: 1px dashed #555; border-radius: 10px; margin-bottom: 40px; }
+        .guarantee { padding: 40px 20px; border: 1px dashed #666; border-radius: 10px; margin-bottom: 40px; }
 
         /* --- FOOTER --- */
-        footer { padding: 40px 0; font-size: 0.8rem; color: #666; border-top: 1px solid #333; }
+        footer { padding: 40px 0; font-size: 0.8rem; color: #888; border-top: 1px solid #333; }
 
         /* --- RESPONSIVIDADE --- */
         @media (max-width: 600px) {
             h1 { font-size: 1.6rem; }
             .sub-headline { font-size: 1rem; }
-            .btn-cta { font-size: 1.2rem; padding: 15px 30px; width: 100%; }
-            .container { width: 95%; padding: 30px 0; }
+            .btn-cta { font-size: 1.1rem; padding: 18px 30px; width: 100%; }
+            .container { width: 95%; padding: 10px 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header-banner-container">
-        <img src="bannercapa.png" alt="Banner Team Feijão" class="header-banner-img">
-    </div>
-
     <div class="container">
+        
+        <div class="banner-wrapper">
+            <img src="BANNERCAPA.png" alt="Banner Team Feijão" class="banner-img">
+        </div>
+
         <header class="headline-section">
             <h1>A HORA DE MUDAR É <span class="highlight">AGORA</span></h1>
             <p class="sub-headline">Assista ao vídeo abaixo e entenda como o #TeamFeijão vai transformar seus resultados.</p>
@@ -98,7 +170,7 @@
         </div>
 
         <a href="#link-do-checkout" class="btn-cta">
-            QUERO ENTRAR PARA O TEAM FEIJÃO
+            QUERO ENTRAR PARA O TEAM
             <span class="small-text">Acesso imediato e seguro</span>
         </a>
 
@@ -113,6 +185,7 @@
             <h3>RISCO ZERO</h3>
             <p>Teste por 7 dias. Devolvemos 100% do seu dinheiro.</p>
         </div>
+        
     </div>
 
     <footer>
