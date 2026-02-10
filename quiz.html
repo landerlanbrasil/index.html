@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalize seu Plano | Team Feijão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-color: #FF0000;
-            --bg-color: #FFFFFF;
-            --text-color: #111111;
-            --secondary-text: #666666;
-            --card-bg: #F8F8F8;
-            --card-border: #E0E0E0;
-            --card-hover: #FFF0F0;
-            --btn-hover: #D90000;
+            /* Paleta Dark Premium (Igual a Home) */
+            --primary-color: #ffffff;       /* Branco para destaques */
+            --bg-color: #1c1c1c;            /* Fundo principal escuro */
+            --text-color: #f0f0f0;          /* Texto claro */
+            --secondary-text: #a0a0a0;      /* Texto secundário cinza */
+            --card-bg: #252525;             /* Fundo dos cartões */
+            --card-border: #333333;         /* Borda sutil */
+            --card-hover: #333333;          /* Cor ao passar o mouse */
+            --selected-border: #ffffff;     /* Borda quando selecionado */
+            --btn-text-color: #000000;      /* Texto do botão (preto no fundo branco) */
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
         body {
             background-color: var(--bg-color);
@@ -31,27 +35,29 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 24px;
-            background: #fff;
+            padding: 20px 24px;
+            background: #1c1c1c; /* Mantém fundo escuro */
             position: relative;
             z-index: 10;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #333;
         }
 
         .back-btn {
             font-size: 24px;
             cursor: pointer;
-            color: #333;
+            color: #fff;
             width: 24px;
             visibility: hidden;
+            transition: color 0.2s;
         }
+        .back-btn:hover { color: #ccc; }
 
         .logo {
             font-weight: 800;
             font-size: 18px;
             text-transform: uppercase;
-            letter-spacing: -0.5px;
-            color: #000;
+            letter-spacing: 1px;
+            color: #fff;
         }
 
         .step-counter {
@@ -64,14 +70,15 @@
         .progress-container {
             width: 100%;
             height: 4px;
-            background-color: #EFEFEF;
+            background-color: #333; /* Fundo da barra mais escuro */
         }
 
         .progress-bar {
             width: 0%;
             height: 100%;
-            background-color: var(--primary-color);
+            background-color: var(--primary-color); /* Barra Branca */
             transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(255,255,255,0.3); /* Glow suave */
         }
 
         /* --- Main Content --- */
@@ -80,8 +87,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 30px 20px;
-            max-width: 500px;
+            padding: 40px 20px;
+            max-width: 600px;
             margin: 0 auto;
             width: 100%;
         }
@@ -92,9 +99,7 @@
             animation: fadeIn 0.4s ease;
         }
 
-        .step-content.active {
-            display: block;
-        }
+        .step-content.active { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -102,35 +107,36 @@
         }
 
         h1 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             text-align: center;
             margin-bottom: 10px;
-            line-height: 1.2;
+            line-height: 1.3;
+            color: #fff;
+            text-transform: uppercase;
         }
 
         p.subtitle {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--secondary-text);
             text-align: center;
             margin-bottom: 30px;
+            font-weight: 400;
         }
 
         /* --- Cards e Grids --- */
         .options-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 15px;
             width: 100%;
         }
 
-        .grid-2-col {
-            grid-template-columns: 1fr 1fr;
-        }
+        .grid-2-col { grid-template-columns: 1fr 1fr; }
 
         .option-card {
             background-color: var(--card-bg);
-            border: 2px solid var(--card-border);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 20px;
             display: flex;
@@ -149,13 +155,15 @@
         }
 
         .option-card:hover {
-            border-color: #ffcccc;
+            border-color: #666;
             background-color: var(--card-hover);
         }
 
+        /* Estilo Selecionado (Branco Premium) */
         .option-card.selected {
-            border-color: var(--primary-color);
-            background-color: #FFF0F0;
+            border-color: var(--selected-border);
+            background-color: #333;
+            box-shadow: 0 0 15px rgba(255,255,255,0.1);
         }
         
         .option-card.selected::after {
@@ -164,8 +172,8 @@
             font-weight: bold;
             font-size: 20px;
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
         }
         
         .option-card:not(.card-vertical).selected::after {
@@ -175,41 +183,69 @@
         }
 
         .option-card.selected .arrow-icon { display: none; }
-        .option-text strong { display: block; font-size: 17px; margin-bottom: 4px; }
-        .option-text span { font-size: 13px; color: #666; }
+        .arrow-icon { color: #666; font-size: 20px; font-weight: bold; }
 
+        .option-text strong { display: block; font-size: 16px; margin-bottom: 5px; color: #fff; }
+        .option-text span { font-size: 12px; color: #888; font-weight: 400; }
+
+        /* Figuras de Corpo (SVG) */
         .body-figure {
             height: 100px;
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: center;
             align-items: flex-end;
         }
         .body-figure svg {
             height: 100%;
-            fill: #ddd; 
+            fill: #444; /* Cinza escuro desativado */
             transition: fill 0.2s;
         }
-        .option-card:hover .body-figure svg { fill: #ff9999; }
-        .option-card.selected .body-figure svg { fill: var(--primary-color); }
+        .option-card:hover .body-figure svg { fill: #888; }
+        .option-card.selected .body-figure svg { fill: #fff; /* Branco ao selecionar */ }
 
-        .input-group { margin-bottom: 20px; width: 100%; }
-        .input-group label { display: block; font-weight: 700; margin-bottom: 8px; color: #333; }
+        /* --- Inputs --- */
+        .input-group { margin-bottom: 25px; width: 100%; }
+        .input-group label { display: block; font-weight: 700; margin-bottom: 10px; color: #ccc; font-size: 14px; text-transform: uppercase; }
         .input-wrapper { position: relative; }
+        
         .input-wrapper input {
-            width: 100%; padding: 16px; font-size: 18px;
-            border: 2px solid var(--card-border); border-radius: 12px; outline: none; transition: border 0.2s;
+            width: 100%; 
+            padding: 18px; 
+            font-size: 16px;
+            background-color: var(--card-bg);
+            color: #fff;
+            border: 1px solid var(--card-border); 
+            border-radius: 12px; 
+            outline: none; 
+            transition: border 0.2s;
         }
+        
         .input-wrapper input:focus { border-color: var(--primary-color); }
-        .input-wrapper span { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: #999; font-weight: 600; }
+        .input-wrapper span { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #666; font-weight: 600; }
 
+        /* --- Botão Continuar --- */
         .btn-continue {
-            width: 100%; padding: 18px; background-color: var(--primary-color); color: white;
-            border: none; border-radius: 12px; font-size: 18px; font-weight: 700;
-            cursor: pointer; margin-top: 20px; transition: background 0.2s;
+            width: 100%; 
+            padding: 20px; 
+            background-color: var(--primary-color); /* Branco */
+            color: var(--btn-text-color); /* Preto */
+            border: none; 
+            border-radius: 50px; /* Redondo igual a home */
+            font-size: 16px; 
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer; 
+            margin-top: 20px; 
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
         }
-        .btn-continue:hover { background-color: var(--btn-hover); }
+        .btn-continue:hover { 
+            transform: scale(1.02);
+            background-color: #e0e0e0;
+            box-shadow: 0 0 25px rgba(255,255,255,0.4);
+        }
 
         .body-type-icon { font-size: 24px; margin-right: 15px; }
         .gender-icon { font-size: 40px; margin-bottom: 10px; }
@@ -485,7 +521,7 @@
 
             <button class="btn-continue" onclick="validateContactInfo()">VER MEU PLANO</button>
             
-            <div style="text-align:center; margin-top:15px; font-size:12px; color:#888;">
+            <div style="text-align:center; margin-top:15px; font-size:12px; color:#666;">
                 🔒 Seus dados estão 100% seguros.
             </div>
         </div>
@@ -509,7 +545,7 @@
 
         // CONTROLE
         let currentStep = 1;
-        const totalSteps = 10; // Agora são 10 passos
+        const totalSteps = 10;
         
         // OBJETO PARA GUARDAR AS RESPOSTAS
         let userAnswers = {
@@ -523,9 +559,9 @@
             "Altura": "",
             "Peso": "",
             "Cardio": "",
-            "Nome": "",     // Novo
-            "Email": "",     // Novo
-            "WhatsApp": ""   // Novo
+            "Nome": "",
+            "Email": "",
+            "WhatsApp": ""
         };
 
         function updateUI() {
@@ -563,14 +599,12 @@
             }
         }
 
-        // Função Genérica para escolha única
         function selectSingle(field, value) {
             userAnswers[field] = value;
             console.log(`Salvo: ${field} = ${value}`);
             nextStep();
         }
 
-        // Funções para escolha múltipla (Passo 7)
         function toggleMulti(element, value) {
             element.classList.toggle('selected');
             const index = userAnswers["Regiões Dificuldade"].indexOf(value);
@@ -589,7 +623,6 @@
             nextStep();
         }
 
-        // Funções para Inputs de Medidas (Passo 8)
         function validateMeasurements() {
             const height = document.getElementById('input-height').value;
             const weight = document.getElementById('input-weight').value;
@@ -603,48 +636,39 @@
             nextStep();
         }
 
-        // --- VALIDAÇÃO DO PASSO 10 (CONTATO) ---
         function validateContactInfo() {
             const name = document.getElementById('input-name').value;
             const email = document.getElementById('input-email').value;
             const whatsapp = document.getElementById('input-whatsapp').value;
 
-            // Validação simples
             if (!name || !email || !email.includes('@')) {
                 alert("Por favor, preencha seu nome e um e-mail válido.");
                 return;
             }
 
-            // Salva os dados
             userAnswers["Nome"] = name;
             userAnswers["Email"] = email;
             userAnswers["WhatsApp"] = whatsapp || "Não informado";
 
-            // Envia o formulário
             submitForm();
         }
 
-        // ENVIO DO FORMULÁRIO E REDIRECIONAMENTO
         function submitForm() {
-            // Mostra tela final de carregamento
             currentStep++;
             updateUI();
 
-            // Envia para o Formspree
             fetch(FORMSPREE_ENDPOINT, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userAnswers)
             })
             .then(response => {
-                // Redireciona independente da resposta
                 setTimeout(() => {
                     window.location.href = PAYMENT_URL;
                 }, 2000);
             })
             .catch(error => {
                 console.error('Erro no envio:', error);
-                // Fallback: Redireciona mesmo com erro
                 setTimeout(() => {
                     window.location.href = PAYMENT_URL;
                 }, 2000);
