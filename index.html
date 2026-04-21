@@ -18,20 +18,24 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .container { width: 90%; max-width: 900px; margin: 0 auto; padding: 20px 0; }
+        .container { width: 90%; max-width: 900px; margin: 0 auto; padding: 10px 0 40px; }
 
-        /* --- BANNER --- */
-        .banner-wrapper {
-            margin-top: 20px;
-            border-radius: 12px; 
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(28, 60, 69, 0.5);
+        /* --- LOGO NO TOPO --- */
+        .logo-wrapper {
+            margin: 20px auto 10px;
+            text-align: center;
         }
-        .banner-img { width: 100%; height: auto; display: block; }
+        .site-logo {
+            width: 100%;
+            max-width: 180px; /* Tamanho ideal para celular e PC */
+            height: auto;
+            /* O truque mágico abaixo remove o fundo preto do JPG */
+            mix-blend-mode: screen; 
+            display: inline-block;
+        }
 
         /* --- HEADLINE (TÍTULOS) --- */
-        .headline-section { padding: 50px 0 30px; }
+        .headline-section { padding: 20px 0 30px; }
         h1 { 
             font-size: 2.5rem; 
             font-weight: 900; 
@@ -41,7 +45,7 @@
             text-transform: uppercase; 
             letter-spacing: -1px;
         }
-        .highlight { color: #00dfb3; } /* Ciano Neon */
+        .highlight { color: #00dfb3; } /* Ciano Neon da Logo */
         .sub-headline { font-size: 1.2rem; color: #b0c4c9; max-width: 700px; margin: 0 auto; font-weight: 400; }
 
         /* --- VÍDEO VSL --- */
@@ -95,7 +99,7 @@
         .btn-prev { left: 15px; }
         .btn-next { right: 15px; }
 
-        /* --- CARDS DE BENEFÍCIOS (LAYOUT GRID PROFISSIONAL) --- */
+        /* --- CARDS DE BENEFÍCIOS (LAYOUT GRID) --- */
         .features-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px; margin-bottom: 60px;
@@ -173,8 +177,8 @@
 <body>
     <div class="container">
         
-        <div class="banner-wrapper">
-            <img src="banner-rodrigo.png" alt="Banner Team Rodrigo" class="banner-img">
+        <div class="logo-wrapper">
+            <img src="logo.jpg" alt="Logo Team Rodrigo" class="site-logo">
         </div>
         
         <header class="headline-section">
