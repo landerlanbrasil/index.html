@@ -18,41 +18,67 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .container { width: 90%; max-width: 900px; margin: 0 auto; padding: 10px 0 40px; }
+        /* Aumentei a largura do container para o texto e vídeo caberem melhor lado a lado */
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 10px 0 40px; }
 
         /* --- LOGO NO TOPO --- */
         .logo-wrapper {
-            margin: 20px auto 10px;
+            margin: 20px auto 30px;
             text-align: center;
         }
         .site-logo {
             width: 100%;
-            max-width: 180px; /* Tamanho ideal para celular e PC */
+            max-width: 180px; 
             height: auto;
-            /* O truque mágico abaixo remove o fundo preto do JPG */
             mix-blend-mode: screen; 
             display: inline-block;
         }
 
-        /* --- HEADLINE (TÍTULOS) --- */
-        .headline-section { padding: 20px 0 30px; }
-        h1 { 
-            font-size: 2.5rem; 
+        /* --- SEÇÃO HERO (LADO A LADO) --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 60px;
+            text-align: left; /* Alinhamento à esquerda no PC */
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 50%;
+        }
+        
+        .hero-video {
+            flex: 1;
+            max-width: 50%;
+            width: 100%;
+        }
+
+        .hero-text h1 { 
+            font-size: 2.8rem; 
             font-weight: 900; 
             color: #ffffff; 
             line-height: 1.1; 
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
             text-transform: uppercase; 
             letter-spacing: -1px;
         }
-        .highlight { color: #00dfb3; } /* Ciano Neon da Logo */
-        .sub-headline { font-size: 1.2rem; color: #b0c4c9; max-width: 700px; margin: 0 auto; font-weight: 400; }
+        
+        .highlight { color: #00dfb3; } /* Ciano Neon */
+        
+        .hero-text .sub-headline { 
+            font-size: 1.2rem; 
+            color: #b0c4c9; 
+            margin-bottom: 30px; 
+            font-weight: 400; 
+        }
 
         /* --- VÍDEO VSL --- */
         .video-wrapper {
             position: relative; padding-bottom: 56.25%; height: 0; background: #000;
             border: 2px solid #1c3c45; border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0, 223, 179, 0.1); margin-bottom: 40px; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 223, 179, 0.2); overflow: hidden;
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
@@ -61,12 +87,12 @@
             display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
             background: linear-gradient(135deg, #00dfb3 0%, #00b38f 100%);
             color: #001a22; 
-            font-size: 1.4rem; font-weight: 900; padding: 20px 50px; border-radius: 50px;
-            text-decoration: none; text-transform: uppercase; margin: 10px 0 40px;
+            font-size: 1.3rem; font-weight: 900; padding: 20px 40px; border-radius: 50px;
+            text-decoration: none; text-transform: uppercase; margin: 0;
             box-shadow: 0 10px 25px rgba(0, 223, 179, 0.4); 
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
-            width: 100%; max-width: 500px;
+            width: 100%; max-width: 400px;
         }
         .btn-cta:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 35px rgba(0, 223, 179, 0.6); }
         .small-text { display: block; font-size: 0.85rem; font-weight: 600; margin-top: 4px; color: #003d4d; text-transform: none; }
@@ -78,7 +104,7 @@
         }
 
         /* --- CARROSSEL DE DEPOIMENTOS --- */
-        .section-title { font-size: 1.8rem; color: #ffffff; margin: 40px 0 25px; text-transform: uppercase; font-weight: 900; }
+        .section-title { font-size: 1.8rem; color: #ffffff; margin: 40px 0 25px; text-transform: uppercase; font-weight: 900; text-align: center; }
         
         .carousel-container {
             position: relative; width: 100%; max-width: 450px; margin: 0 auto 50px;
@@ -119,6 +145,7 @@
             border: 2px solid #00dfb3; border-radius: 15px; padding: 40px 30px;
             margin: 0 auto 50px; max-width: 450px; box-shadow: 0 15px 40px rgba(0, 223, 179, 0.15);
             position: relative;
+            text-align: center;
         }
         .pricing-badge {
             position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
@@ -136,6 +163,7 @@
             display: inline-flex; justify-content: center; align-items: center; 
             border-radius: 50%; margin-right: 12px; font-weight: bold; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;
         }
+        .pricing-card .btn-cta { margin: 0 auto; display: flex; } /* Centraliza o botão dentro da tabela */
 
         /* --- FAQ (ACORDEÃO) --- */
         .faq-section { margin: 60px auto; max-width: 700px; text-align: left; }
@@ -163,11 +191,24 @@
         .guarantee-text h3 { color: #00dfb3; margin-bottom: 5px; font-size: 1.3rem; }
         .guarantee-text p { color: #b0c4c9; font-size: 0.95rem; }
         
-        footer { padding: 40px 0; font-size: 0.85rem; color: #6a8a94; border-top: 1px solid #1c3c45; margin-top: 40px; }
+        footer { padding: 40px 0; font-size: 0.85rem; color: #6a8a94; border-top: 1px solid #1c3c45; margin-top: 40px; text-align: center; }
 
-        /* --- RESPONSIVIDADE --- */
+        /* --- RESPONSIVIDADE (CELULAR E TABLET) --- */
+        @media (max-width: 850px) {
+            .hero-section {
+                flex-direction: column; /* Empilha no mobile */
+                text-align: center; /* Centraliza tudo no mobile */
+                gap: 30px;
+            }
+            .hero-text, .hero-video {
+                max-width: 100%;
+            }
+            .hero-text h1 { font-size: 2.2rem; }
+            .btn-cta { margin: 0 auto; width: 100%; } /* Botão centralizado no celular */
+        }
+
         @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
+            h1 { font-size: 1.8rem !important; }
             .carousel-slide { height: 400px; }
             .btn-cta { font-size: 1.2rem; padding: 18px 20px; width: 100%; }
             .guarantee { flex-direction: column; text-align: center; }
@@ -181,19 +222,25 @@
             <img src="logo.png" alt="Logo Team Rodrigo" class="site-logo">
         </div>
         
-        <header class="headline-section">
-            <h1>O SEGREDO PARA EVOLUIR <span class="highlight">TODA SEMANA</span></h1>
-            <p class="sub-headline">Assista ao vídeo abaixo e entenda exatamente como a metodologia do #TeamRodrigo vai transformar o seu corpo.</p>
-        </header>
-        
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/qGVnQwkhlLY?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <a href="quiz.html" class="btn-cta">
-            COMEÇAR MINHA EVOLUÇÃO
-            <span class="small-text">Acesso imediato e seguro</span>
-        </a>
+        <section class="hero-section">
+            
+            <div class="hero-text">
+                <h1>O SEGREDO PARA EVOLUIR <span class="highlight">TODA SEMANA</span></h1>
+                <p class="sub-headline">Assista ao vídeo e entenda exatamente como a metodologia do #TeamRodrigo vai transformar o seu corpo.</p>
+                
+                <a href="quiz.html" class="btn-cta">
+                    COMEÇAR MINHA EVOLUÇÃO
+                    <span class="small-text">Acesso imediato e seguro</span>
+                </a>
+            </div>
+            
+            <div class="hero-video">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/qGVnQwkhlLY?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+        </section>
 
         <h2 class="section-title">Resultados Reais</h2>
         <div class="carousel-container">
@@ -235,7 +282,7 @@
                 <li>Suporte direto para dúvidas</li>
                 <li>Garantia de 7 dias Incondicional</li>
             </ul>
-            <a href="quiz.html" class="btn-cta" style="margin-bottom: 0;">
+            <a href="quiz.html" class="btn-cta">
                 QUERO ENTRAR NO TEAM
                 <span class="small-text">Vagas Limitadas</span>
             </a>
