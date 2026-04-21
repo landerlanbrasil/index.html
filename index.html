@@ -18,7 +18,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Aumentei a largura do container para o texto e vídeo caberem melhor lado a lado */
         .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 10px 0 40px; }
 
         /* --- LOGO NO TOPO --- */
@@ -34,26 +33,18 @@
             display: inline-block;
         }
 
-        /* --- SEÇÃO HERO (LADO A LADO) --- */
+        /* --- SEÇÃO HERO 1 (VÍDEO LADO A LADO) --- */
         .hero-section {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 50px;
             margin-bottom: 60px;
-            text-align: left; /* Alinhamento à esquerda no PC */
+            text-align: left; 
         }
         
-        .hero-text {
-            flex: 1;
-            max-width: 50%;
-        }
-        
-        .hero-video {
-            flex: 1;
-            max-width: 50%;
-            width: 100%;
-        }
+        .hero-text { flex: 1; max-width: 50%; }
+        .hero-video { flex: 1; max-width: 50%; width: 100%; }
 
         .hero-text h1 { 
             font-size: 2.8rem; 
@@ -103,11 +94,30 @@
             100% { box-shadow: 0 0 0 0 rgba(0, 223, 179, 0); }
         }
 
-        /* --- CARROSSEL DE DEPOIMENTOS --- */
-        .section-title { font-size: 1.8rem; color: #ffffff; margin: 40px 0 25px; text-transform: uppercase; font-weight: 900; text-align: center; }
+        /* --- SEÇÃO HERO 2 (DEPOIMENTOS LADO A LADO) --- */
+        .testimonials-hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 80px;
+            text-align: left;
+        }
         
+        .testimonials-carousel { flex: 1; max-width: 50%; width: 100%; }
+        .testimonials-text { flex: 1; max-width: 50%; }
+
+        .testimonials-text h2 {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
         .carousel-container {
-            position: relative; width: 100%; max-width: 450px; margin: 0 auto 50px;
+            position: relative; width: 100%; max-width: 450px; margin: 0 auto;
             overflow: hidden; border-radius: 12px; border: 2px solid #1c3c45;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); background-color: #000;
         }
@@ -126,6 +136,8 @@
         .btn-next { right: 15px; }
 
         /* --- CARDS DE BENEFÍCIOS (LAYOUT GRID) --- */
+        .section-title { font-size: 1.8rem; color: #ffffff; margin: 40px 0 25px; text-transform: uppercase; font-weight: 900; text-align: center; }
+        
         .features-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px; margin-bottom: 60px;
@@ -163,7 +175,7 @@
             display: inline-flex; justify-content: center; align-items: center; 
             border-radius: 50%; margin-right: 12px; font-weight: bold; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;
         }
-        .pricing-card .btn-cta { margin: 0 auto; display: flex; } /* Centraliza o botão dentro da tabela */
+        .pricing-card .btn-cta { margin: 0 auto; display: flex; }
 
         /* --- FAQ (ACORDEÃO) --- */
         .faq-section { margin: 60px auto; max-width: 700px; text-align: left; }
@@ -195,16 +207,17 @@
 
         /* --- RESPONSIVIDADE (CELULAR E TABLET) --- */
         @media (max-width: 850px) {
-            .hero-section {
-                flex-direction: column; /* Empilha no mobile */
-                text-align: center; /* Centraliza tudo no mobile */
-                gap: 30px;
+            .hero-section, .testimonials-hero {
+                flex-direction: column; 
+                text-align: center; 
+                gap: 40px;
             }
-            .hero-text, .hero-video {
+            .hero-text, .hero-video, .testimonials-carousel, .testimonials-text {
                 max-width: 100%;
             }
             .hero-text h1 { font-size: 2.2rem; }
-            .btn-cta { margin: 0 auto; width: 100%; } /* Botão centralizado no celular */
+            .testimonials-text h2 { font-size: 2.0rem; }
+            .btn-cta { margin: 0 auto; width: 100%; } 
         }
 
         @media (max-width: 600px) {
@@ -223,7 +236,6 @@
         </div>
         
         <section class="hero-section">
-            
             <div class="hero-text">
                 <h1>O SEGREDO PARA EVOLUIR <span class="highlight">TODA SEMANA</span></h1>
                 <p class="sub-headline">Assista ao vídeo e entenda exatamente como a metodologia do #TeamRodrigo vai transformar o seu corpo.</p>
@@ -239,19 +251,25 @@
                     <iframe src="https://www.youtube.com/embed/qGVnQwkhlLY?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
-            
         </section>
 
-        <h2 class="section-title">Resultados Reais</h2>
-        <div class="carousel-container">
-            <div class="carousel-track" id="carouselTrack">
-                <img src="Depoimento-01.jpg" alt="Depoimento Aluno 1" class="carousel-slide">
-                <img src="depoimento-02.jpg" alt="Depoimento Aluno 2" class="carousel-slide">
-                <img src="depoimento-03.jpg" alt="Depoimento Aluno 3" class="carousel-slide">
+        <section class="testimonials-hero">
+            <div class="testimonials-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <img src="Depoimento-01.jpg" alt="Depoimento Aluno 1" class="carousel-slide">
+                        <img src="depoimento-02.jpg" alt="Depoimento Aluno 2" class="carousel-slide">
+                        <img src="depoimento-03.jpg" alt="Depoimento Aluno 3" class="carousel-slide">
+                    </div>
+                    <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="carousel-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
+                </div>
             </div>
-            <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="carousel-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
+            
+            <div class="testimonials-text">
+                <h2><span class="highlight">VEJA SÓ</span> os resultados de nossos alunos.<br> Vai ficar fora de forma?</h2>
+            </div>
+        </section>
 
         <h2 class="section-title">Tudo que você precisa</h2>
         <div class="features-grid">
