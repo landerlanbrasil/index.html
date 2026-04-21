@@ -11,7 +11,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
         
         body { 
-            background-color: #1c1c1c; 
+            /* Fundo escuro azul/petróleo para combinar com o banner */
+            background-color: #0f2027; 
             color: #f0f0f0; 
             line-height: 1.6; 
             text-align: center; 
@@ -24,8 +25,8 @@
             margin-top: 20px;
             border-radius: 15px; 
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            border: 1px solid #333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            border: 1px solid #1c3c45;
         }
 
         .banner-img { width: 100%; height: auto; display: block; }
@@ -33,47 +34,60 @@
         /* --- HEADLINE --- */
         .headline-section { padding: 30px 0 20px; }
         h1 { font-size: 2.0rem; font-weight: 900; color: #ffffff; line-height: 1.2; margin-bottom: 10px; text-transform: uppercase; }
-        .highlight { color: #b0b0b0; text-decoration: underline; }
-        .sub-headline { font-size: 1.1rem; color: #cccccc; margin-bottom: 20px; }
+        
+        /* Cor de destaque mudada para o Ciano da Logo */
+        .highlight { color: #00dfb3; text-decoration: underline; }
+        .sub-headline { font-size: 1.1rem; color: #b0c4c9; margin-bottom: 20px; }
 
         /* --- VÍDEO --- */
         .video-wrapper {
             position: relative; padding-bottom: 56.25%; height: 0; background: #000;
-            border: 2px solid #444; border-radius: 10px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1); margin-bottom: 40px; overflow: hidden;
+            border: 2px solid #1c3c45; border-radius: 10px;
+            box-shadow: 0 0 25px rgba(0, 223, 179, 0.15); margin-bottom: 40px; overflow: hidden;
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* --- BOTÃO DE AÇÃO (Link atualizado para quiz.html) --- */
+        /* --- BOTÃO DE AÇÃO --- */
         .btn-cta {
-            display: inline-block; background-color: #ffffff; color: #000000;
+            display: inline-block; 
+            background-color: #00dfb3; /* Ciano Neon */
+            color: #001a22; /* Texto escuro para contraste */
             font-size: 1.5rem; font-weight: 900; padding: 20px 40px; border-radius: 50px;
             text-decoration: none; text-transform: uppercase; margin: 10px 0 40px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 15px rgba(0, 223, 179, 0.5); transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
             animation: pulse 2s infinite;
         }
-        .btn-cta:hover { transform: scale(1.05); background-color: #e0e0e0; box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); }
-        .small-text { display: block; font-size: 0.8rem; font-weight: 500; margin-top: 5px; color: #333; }
+        .btn-cta:hover { 
+            transform: scale(1.05); 
+            background-color: #33ffcc; 
+            box-shadow: 0 0 25px rgba(0, 223, 179, 0.8); 
+        }
+        .small-text { display: block; font-size: 0.8rem; font-weight: 600; margin-top: 5px; color: #002e3b; }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(0, 223, 179, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 223, 179, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 223, 179, 0); }
         }
 
         /* --- BENEFÍCIOS --- */
-        .features { background-color: #252525; padding: 40px 20px; border-radius: 10px; text-align: left; margin-bottom: 40px; border: 1px solid #333; }
+        .features { 
+            background-color: #142b33; /* Fundo do card levemente mais claro que o body */
+            padding: 40px 20px; border-radius: 10px; text-align: left; margin-bottom: 40px; 
+            border: 1px solid #1c3c45; 
+        }
         .features h2 { text-align: center; margin-bottom: 30px; color: #ffffff; }
         .feature-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
+        
         .check-icon { 
-            color: #ffffff; font-size: 1.2rem; margin-right: 15px; font-weight: bold; 
-            background: #444; width: 25px; height: 25px; border-radius: 50%; 
+            color: #001a22; font-size: 1.2rem; margin-right: 15px; font-weight: bold; 
+            background: #00dfb3; width: 25px; height: 25px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
         }
 
         /* --- GARANTIA --- */
-        .guarantee { padding: 40px 20px; border: 1px dashed #666; border-radius: 10px; margin-bottom: 40px; }
-        footer { padding: 40px 0; font-size: 0.8rem; color: #888; border-top: 1px solid #333; }
+        .guarantee { padding: 40px 20px; border: 1px dashed #2a5a66; border-radius: 10px; margin-bottom: 40px; background-color: #11262d; }
+        footer { padding: 40px 0; font-size: 0.8rem; color: #6a8a94; border-top: 1px solid #1c3c45; }
 
         @media (max-width: 600px) {
             h1 { font-size: 1.6rem; }
@@ -85,12 +99,14 @@
 <body>
     <div class="container">
         <div class="banner-wrapper">
-            <img src="bannercapa.png" alt="Banner Team Feijão" class="banner-img">
+            <img src="Banner Rodrigo.jpg" alt="Banner Team Rodrigo" class="banner-img">
         </div>
+        
         <header class="headline-section">
             <h1>A HORA DE MUDAR É <span class="highlight">AGORA</span></h1>
             <p class="sub-headline">Assista ao vídeo abaixo e entenda como o #TeamRodrigo vai transformar seus resultados.</p>
         </header>
+        
         <div class="video-wrapper">
             <iframe src="https://www.youtube.com/embed/qGVnQwkhlLY?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -106,11 +122,13 @@
             <div class="feature-item"><span class="check-icon">✓</span><p><strong>Comunidade Exclusiva:</strong> Motivação diária.</p></div>
             <div class="feature-item"><span class="check-icon">✓</span><p><strong>Lives Mensais:</strong> Tire suas dúvidas.</p></div>
         </div>
+        
         <div class="guarantee">
             <h3>RISCO ZERO</h3>
             <p>Teste por 7 dias. Devolvemos 100% do seu dinheiro.</p>
         </div>
     </div>
+    
     <footer>
         <p>&copy; 2026 Team Rodrigo.</p>
     </footer>
