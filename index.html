@@ -11,7 +11,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
         
         body { 
-            /* Fundo escuro azul/petróleo para combinar com o banner */
             background-color: #0f2027; 
             color: #f0f0f0; 
             line-height: 1.6; 
@@ -34,8 +33,6 @@
         /* --- HEADLINE --- */
         .headline-section { padding: 30px 0 20px; }
         h1 { font-size: 2.0rem; font-weight: 900; color: #ffffff; line-height: 1.2; margin-bottom: 10px; text-transform: uppercase; }
-        
-        /* Cor de destaque mudada para o Ciano da Logo */
         .highlight { color: #00dfb3; text-decoration: underline; }
         .sub-headline { font-size: 1.1rem; color: #b0c4c9; margin-bottom: 20px; }
 
@@ -43,25 +40,80 @@
         .video-wrapper {
             position: relative; padding-bottom: 56.25%; height: 0; background: #000;
             border: 2px solid #1c3c45; border-radius: 10px;
-            box-shadow: 0 0 25px rgba(0, 223, 179, 0.15); margin-bottom: 40px; overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 223, 179, 0.15); margin-bottom: 30px; overflow: hidden;
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* --- BOTÃO DE AÇÃO --- */
+        /* --- CARROSSEL DE DEPOIMENTOS --- */
+        .testimonials-section {
+            margin: 10px 0 30px;
+            padding: 20px;
+            background-color: #142b33;
+            border-radius: 10px;
+            border: 1px solid #1c3c45;
+        }
+        .testimonials-section h2 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px; /* Limita a largura para imagens verticais não ficarem gigantes no PC */
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 2px solid #1c3c45;
+            background-color: #000;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            width: 100%;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            height: 450px; /* Altura fixa para manter o padrão */
+            object-fit: contain; /* Ajusta a imagem sem cortar a cabeça/pés */
+        }
+        
+        /* Botões do Carrossel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 223, 179, 0.8);
+            color: #001a22;
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+        .carousel-btn:hover { background-color: #33ffcc; }
+        .btn-prev { left: 10px; }
+        .btn-next { right: 10px; }
+
+        /* --- BOTÃO DE AÇÃO CTA --- */
         .btn-cta {
             display: inline-block; 
-            background-color: #00dfb3; /* Ciano Neon */
-            color: #001a22; /* Texto escuro para contraste */
+            background-color: #00dfb3; 
+            color: #001a22; 
             font-size: 1.5rem; font-weight: 900; padding: 20px 40px; border-radius: 50px;
             text-decoration: none; text-transform: uppercase; margin: 10px 0 40px;
             box-shadow: 0 0 15px rgba(0, 223, 179, 0.5); transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
             animation: pulse 2s infinite;
         }
-        .btn-cta:hover { 
-            transform: scale(1.05); 
-            background-color: #33ffcc; 
-            box-shadow: 0 0 25px rgba(0, 223, 179, 0.8); 
-        }
+        .btn-cta:hover { transform: scale(1.05); background-color: #33ffcc; box-shadow: 0 0 25px rgba(0, 223, 179, 0.8); }
         .small-text { display: block; font-size: 0.8rem; font-weight: 600; margin-top: 5px; color: #002e3b; }
 
         @keyframes pulse {
@@ -72,7 +124,7 @@
 
         /* --- BENEFÍCIOS --- */
         .features { 
-            background-color: #142b33; /* Fundo do card levemente mais claro que o body */
+            background-color: #142b33; 
             padding: 40px 20px; border-radius: 10px; text-align: left; margin-bottom: 40px; 
             border: 1px solid #1c3c45; 
         }
@@ -91,6 +143,7 @@
 
         @media (max-width: 600px) {
             h1 { font-size: 1.6rem; }
+            .carousel-slide { height: 350px; }
             .btn-cta { font-size: 1.1rem; padding: 18px 30px; width: 100%; }
             .container { width: 95%; padding: 10px 0; }
         }
@@ -98,6 +151,7 @@
 </head>
 <body>
     <div class="container">
+        
         <div class="banner-wrapper">
             <img src="banner-rodrigo.png" alt="Banner Team Rodrigo" class="banner-img">
         </div>
@@ -110,7 +164,19 @@
         <div class="video-wrapper">
             <iframe src="https://www.youtube.com/embed/qGVnQwkhlLY?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        
+
+        <div class="testimonials-section">
+            <h2>Resultados Reais do Team</h2>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <img src="Depoimento-01.jpg" alt="Depoimento Aluno 1" class="carousel-slide">
+                    <img src="depoimento-02.jpg" alt="Depoimento Aluno 2" class="carousel-slide">
+                    <img src="depoimento-03.jpg" alt="Depoimento Aluno 3" class="carousel-slide">
+                </div>
+                <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </div>
         <a href="quiz.html" class="btn-cta">
             QUERO ENTRAR PARA O TEAM
             <span class="small-text">Acesso imediato e seguro</span>
@@ -132,5 +198,34 @@
     <footer>
         <p>&copy; 2026 Team Rodrigo.</p>
     </footer>
+
+    <script>
+        let currentSlide = 0;
+        const track = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let autoPlayInterval;
+
+        function moveSlide(direction) {
+            const totalSlides = slides.length;
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            const offset = -currentSlide * 100;
+            track.style.transform = `translateX(${offset}%)`;
+            resetAutoPlay();
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                moveSlide(1);
+            }, 3000); // Passa a foto a cada 3 segundos
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Inicia o carrossel automático assim que a página carrega
+        startAutoPlay();
+    </script>
 </body>
 </html>
